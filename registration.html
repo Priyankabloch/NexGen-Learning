@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <div>
+        <form action="submit.php" method="POST">
+            <table>
+                <!-- First Name -->
+                <tr>
+                    <td>FIRST NAME</td>
+                    <td><input type="text" name="firstName" maxlength="30" required /></td>
+                </tr>
+                <!-- Last Name -->
+                <tr>
+                    <td>LAST NAME</td>
+                    <td><input type="text" name="lastName" maxlength="30" required /></td>
+                </tr>
+                <!-- Birthday -->
+                <tr>
+                    <td>BIRTHDAY</td>
+                    <td>
+                        <select id="Birthday_Day" name="Birthday_Day" required>
+                            <option value="">Day</option>
+                            <!-- Add day options -->
+                        </select>
+                        <select id="Birthday_Month" name="Birthday_Month" required>
+                            <option value="">Month</option>
+                            <option value="January">Jan</option>
+                            <option value="February">Feb</option>
+                            <option value="March">Mar</option>
+                            <option value="April">Apr</option>
+                            <option value="May">May</option>
+                            <option value="June">Jun</option>
+                            <option value="July">Jul</option>
+                            <option value="August">Aug</option>
+                            <option value="September">Sep</option>
+                            <option value="October">Oct</option>
+                            <option value="November">Nov</option>
+                            <option value="December">Dec</option>
+                        </select>
+                        <select name="Birthday_Year" id="Birthday_Year" required>
+                            <option value="">Year</option>
+                            <!-- Add year options -->
+                        </select>
+                    </td>
+                </tr>
+                <!-- Email Id -->
+                <tr>
+                    <td>EMAIL ID</td>
+                    <td><input type="email" name="email" maxlength="100" required /></td>
+                </tr>
+                <!-- Mobile Number -->
+                <tr>
+                    <td>MOBILE NUMBER</td>
+                    <td><input type="text" name="mobilenumber" maxlength="10" required />(10 digit number)</td>
+                </tr>
+                <!-- Gender -->
+                <tr>
+                    <td>GENDER</td>
+                    <td>
+                        Male <input type="radio" name="gender" value="Male" required />
+                        Female <input type="radio" name="gender" value="Female" required />
+                    </td>
+                </tr>
+                <!-- Address -->
+                <tr>
+                    <td>ADDRESS</td>
+                    <td><textarea name="address" rows="4" cols="30"></textarea></td>
+                </tr>
+                <!-- City -->
+                <tr>
+                    <td>CITY</td>
+                    <td><input type="text" name="city" maxlength="30" required />(max 30 characters a-z and A-Z)</td>
+                </tr>
+                <!-- Submit and Reset -->
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

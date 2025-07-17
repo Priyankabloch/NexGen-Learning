@@ -1,0 +1,340 @@
+</style>/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f9;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #df4f92;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li a i {
+  margin-right: 10px;
+  font-size: 1.5rem; /* Larger icon size */
+}
+
+.sidebar ul li a:hover {
+  color: #a6e1fa;
+  transform: scale(1.05); /* Subtle hover effect */
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #d91a8d;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px; /* Bigger font size */
+  font-family: 'Poppins', sans-serif;
+  border-radius: 8px;
+}
+
+/* Card styling for different sections */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Profile section */
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid #d91a8d;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Assignments section */
+.assignment {
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.btn {
+  padding: 12px 25px;
+  background-color: #d91a8d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn:hover {
+  background-color: #d91a8d;
+}
+
+/* Grades section */
+.grades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.grades-list p {
+  font-size: 18px;
+  color: #333;
+}
+
+.circle-wrap {
+  margin: 50px auto;
+  width: 200px;
+  height: 200px;
+  background: #e6e2e7;
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle .mask,
+.circle .fill {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border-radius: 50%;
+  clip: rect(0px, 200px, 200px, 100px);
+}
+
+.circle .mask .fill {
+  background-color: #d91a8d;
+  transform: rotate(153deg);
+  animation: fill ease-in-out 1s;
+}
+
+.circle .inside-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #fff;
+  line-height: 160px;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: #d91a8d;
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(306deg);
+  }
+}
+
+/* Chatbot section */
+.chat-window {
+  max-height: 400px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#chat-log {
+  margin-bottom: 10px;
+}
+
+.input-field {
+  width: calc(100% - 60px);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+#send-btn {
+  padding: 10px;
+  background-color: #d91a8d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background-color: #d91a8d;
+}
+
+/* Hover effects */
+.sidebar ul li a:hover {
+  color: #f0e130;
+  transition: 0.3s ease;
+}
+
+/* Course Sections (Courses Tab) */
+.course-section {
+  margin-bottom: 20px;
+}
+
+.course-section h3 {
+  font-size: 20px;
+  color: #d91a8d;
+  font-family: 'Poppins', sans-serif;
+}
+
+.course-section p,
+.course-section ul {
+  font-size: 16px;
+  color: #333;
+}
+/* Base styles for attendance items */
+.attendance-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.attendance-item {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.circle-wrap {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  background: #e6e2e7;
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle .mask,
+.circle .fill {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
+  clip: rect(0px, 150px, 150px, 75px);
+}
+
+.circle .mask .fill {
+  background-color: #d91a8d;
+}
+
+.circle .inside-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fff;
+  line-height: 120px;
+  text-align: center;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  color: #d91a8d;
+}
+.medals-section {
+  display: flex;
+  align-items: center;
+}
+
+.medal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.medal img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gold-medal img {
+  border: 2px solid gold;
+}
+
+.silver-medal img {
+  border: 2px solid silver;
+}
+
+.bronze-medal img {
+  border: 2px solid #cd7f32;
+}
+.medal:hover img {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}

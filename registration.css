@@ -1,0 +1,63 @@
+h3{
+    font-family: Calibri; 
+    font-size: 25pt;         
+    font-style: normal; 
+    font-weight: bold; 
+    color:hsl(327,90%,28%);
+    text-align: center; 
+    text-decoration: underline
+  }
+  
+  table{
+    font-family: Calibri; 
+    color:white; 
+    font-size: 11pt; 
+    font-style: normal;
+    font-weight: bold;
+    text-align:; 
+    background-color: hsl(327,90%,28%); 
+    border-collapse: collapse; 
+    border: 2px hsl(327,90%,28%)
+  }
+  table.inner{
+    border: 0px
+  }
+
+  body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.background {
+    background-image: url('https://preview.colorkit.co/color/fc49ab.png?size=vertical-wallpaper&static=true');
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h3 {
+    font-family: Calibri;
+    font-size: 25pt;
+    font-style: normal;
+    font-weight: bold;
+    color:hsl(327,90%,28%);
+    text-align: center;
+    text-decoration: underline;
+}
+
+table {
+    font-family: Calibri;
+    color: white;
+    font-size: 11pt;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    background-color: hsl(327,90%,28%);
+    border-collapse: collapse;
+    border: 2px hsl(327,90%,28%);
+}
+
+table.inner {
+    border: 0px;
+}

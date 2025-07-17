@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard with Courses & Chatbot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="student.dashboard.css"> <!-- Your custom styles -->
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#" class="tablink" data-tab="profile"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="#" class="tablink" data-tab="assignments"><i class="fas fa-tasks"></i> Assignments</a></li>
+        <li><a href="#" class="tablink" data-tab="grades"><i class="fas fa-chart-line"></i> Grades</a></li>
+        <li><a href="#" class="tablink" data-tab="progress"><i class="fas fa-chart-pie"></i> Progress</a></li>
+        <li><a href="#" class="tablink" data-tab="streaks-badges"><i class="fas fa-badge-check"></i> Streaks & Badges</a></li>
+        <li><a href="#" class="tablink" data-tab="feedback"><i class="fas fa-comments"></i> Feedback & Analytics</a></li>
+        <li><a href="#" class="tablink" data-tab="chatbot"><i class="fas fa-robot"></i> Chatbot</a></li>
+        <li><a href="#" class="tablink" data-tab="courses"><i class="fas fa-book"></i> Courses</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <header>
+        <h1>Student Dashboard</h1>
+      </header>
+
+      <!-- Profile Section -->
+      <div id="profile" class="tab-content active">
+        <section class="card">
+          <h2>Profile</h2>
+          <label for="profile-pic-input">
+            <img id="profile-pic" src="https://cdn.goenhance.ai/user/2024/07/19/c0c1400b-abc2-4541-a849-a7e4f361d28d_0.jpg" alt="Profile Picture" class="profile-pic">
+            <input type="file" id="profile-pic-input" style="display:none">
+          </label>
+          <p><strong>Name:</strong> Palika</p>
+          <p><strong>ID:</strong> 998670</p>
+          <p><strong>Email:</strong> Palika97@gmail.com</p>
+        </section>
+      </div>
+
+      <!-- Assignments Section -->
+      <div id="assignments" class="tab-content">
+        <section class="card">
+          <h2>Assignments</h2>
+          <div id="assignment-list">
+            <div class="assignment">
+              <p><strong>Title:</strong> Artificial Intelligence (AI) </p>
+              <p><strong>Due Date:</strong> 2024-09-30</p>
+              <p><strong>Subject:</strong>(AI) </p>
+            </div>
+          </div>
+          <button id="add-assignment-btn" class="btn">Add New Assignment</button>
+        </section>
+      </div>
+
+      <!-- Grades Section -->
+      <div id="grades" class="tab-content">
+        <section class="card">
+          <h2>Grades</h2>
+          <div class="grades-list">
+            <p><strong>AI:</strong> 85%</p>
+            <p><strong>Python:</strong> 90%</p>
+            <p><strong>:DSA</strong> 75%</p>
+            <p><strong>Data Science:</strong> 80%</p>
+          </div>
+          <div class="circle-wrap">
+            <div class="circle">
+              <div class="mask full">
+                <div class="fill"></div>
+              </div>
+              <div class="mask half">
+                <div class="fill"></div>
+              </div>
+              <div class="inside-circle">85%</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Progress Section -->
+      <div id="progress" class="tab-content">
+        <section class="card">
+          <h2>Progress</h2>
+          <canvas id="progressChart" width="400" height="400"></canvas>
+        </section>
+      </div>
+
+      <!-- Streaks & Badges Section -->
+      <div id="streaks-badges" class="tab-content">
+        <section class="card">
+          <h2>Streaks & Badges</h2>
+          <p>Streak: 5 days</p>
+          <p>Badges: <span class="font-bold">Beginner Coder</span></p>
+
+          <!-- Medal Showcase -->
+          <div class="medals-section">
+            <h4>Medals</h4>
+            <div class="medal-container">
+              <div class="medal gold-medal">
+                <img src="https://i.pinimg.com/474x/9a/89/bf/9a89bfba65edaf32adb791fa035923f8.jpg" alt="Gold Medal">
+                <p>Gold</p>
+              </div>
+              <div class="medal silver-medal">
+                <img src="https://images.jdmagicbox.com/quickquotes/images_main/silver-medal-2213655852-ofjpsvzq.jpg" alt="Silver Medal">
+                <p>Silver</p>
+              </div>
+              <div class="medal bronze-medal">
+                <img src="" alt="Bronze Medal">
+                <p>Bronze</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Feedback & Analytics Section -->
+      <div id="feedback" class="tab-content">
+        <section class="card">
+          <h2>Feedback & Analytics</h2>
+          <p>Analyze your performance across different subjects and get feedback from instructors.</p>
+          <div>
+            <canvas id="feedbackChart" width="400" height="400"></canvas>
+          </div>
+        </section>
+      </div>
+
+      <!-- Chatbot Section -->
+      <div id="chatbot" class="tab-content">
+        <section class="card">
+          <h2>Chatbot & Assistance</h2>
+          <div id="chatbot-window" class="chat-window">
+            <div id="chat-log">
+              <!-- Chat log will dynamically update here -->
+            </div>
+            <input type="text" id="user-input" placeholder="Ask me anything..." class="input-field">
+            <button id="send-btn" class="btn">Send</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Skill Levels Section -->
+      <div id="skill-levels" class="tab-content">
+        <section class="card">
+          <h2>Skill Levels</h2>
+          <div class="my-4">
+            <p>JavaScript: <span class="text-green-500 font-bold">Expert</span></p>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div class="bg-green-500 h-2.5 rounded-full" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="my-4">
+            <p>Python: <span class="text-yellow-500 font-bold">Intermediate</span></p>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 60%"></div>
+            </div>
+          </div>
+          <div class="my-4">
+            <p>HTML & CSS: <span class="text-blue-500 font-bold">Beginner</span></p>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div class="bg-blue-500 h-2.5 rounded-full" style="width: 30%"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Courses Section -->
+      <div id="courses" class="tab-content">
+        <section class="card">
+          <h2>Courses</h2>
+
+          <!-- Course Overview -->
+          <div class="course-section">
+            <h3>Course Overview</h3>
+            <p>Welcome to the course overview! Here you can see all your enrolled courses.</p>
+          </div>
+
+          <!-- Starred Courses -->
+          <div class="course-section">
+            <h3>Starred Courses</h3>
+            <ul id="starred-courses">
+              <li>Introduction to JavaScript</li>
+              <li>Advanced CSS Techniques</li>
+            </ul>
+          </div>
+
+          <!-- Search Course -->
+          <div class="course-section">
+            <h3>Search Course</h3>
+            <input type="text" id="search-course" placeholder="Search for a course..." class="input-field">
+          </div>
+
+          <!--
+          <!-- Recent Courses -->
+          <div class="course-section">
+            <h3>Recent Courses</h3>
+            <ul id="recent-courses">
+              <li>Python for Data Science</li>
+              <li>Web Development Fundamentals</li>
+            </ul>
+          </div>
+
+          <!-- Mentor List -->
+          <div class="course-section">
+            <h3>Mentor List</h3>
+            <ul id="mentor-list">
+              <li>Dr. Alan Smith - Data Science</li>
+              <li>Prof. Linda Chang - Web Development</li>
+            </ul>
+          </div>
+
+          <!-- Reading Time of a Topic -->
+          <div class="course-section">
+            <h3>Reading Time</h3>
+            <p>The estimated reading time for "JavaScript Fundamentals" is <strong>45 minutes</strong>.</p>
+          </div>
+
+          <!-- Total Finishing Time of a Skill -->
+          <div class="course-section">
+            <h3>Skill Finishing Time</h3>
+            <p>Total finishing time for "Web Development" skill is <strong>40 hours</strong>.</p>
+          </div>
+
+          <!-- Content Delivery -->
+          <div class="course-section">
+            <h3>Content Delivery</h3>
+            <p>Watch videos from the instructor for deeper understanding. <a href="#">Watch Videos</a></p>
+          </div>
+
+          <!-- Learners Updation -->
+          <div class="course-section">
+            <h3>Learners' Updation</h3>
+            <p>Track your fellow learners' progress and updates in the course community.</p>
+          </div>
+
+          <!-- Instructor Resources -->
+          <div class="course-section">
+            <h3>Instructor Resources</h3>
+            <p>Instructors provide additional resources like PDFs and Word documents. <a href="#">Download Resources</a></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript to handle tab switching -->
+  <script>
+    const tabs = document.querySelectorAll('.tablink');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Hide all tab contents
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+
+        // Show the clicked tab's content
+        const targetTab = this.getAttribute('data-tab');
+        document.getElementById(targetTab).classList.add('active');
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- Add Chart.js scripts or any external libraries you need -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script> <!-- Custom JS file if you have one -->
+</body>
+</html>
+</script>// Tab Navigation
+const tabLinks = document.querySelectorAll('.tablink');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabLinks.forEach(tab => {
+  tab.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Hide all tab contents
+    tabContents.forEach(content => content.classList.remove('active'));
+
+    // Remove active class from all tabs
+    tabLinks.forEach(t => t.classList.remove('active'));
+
+    // Show the clicked tab's content
+    const targetTab = this.getAttribute('data-tab');
+    document.getElementById(targetTab).classList.add('active');
+    this.classList.add('active');
+  });
+});
+
+// Add New Assignment
+const addAssignmentBtn = document.getElementById('add-assignment-btn');
+const assignmentList = document.getElementById('assignment-list');
+
+addAssignmentBtn.addEventListener('click', function () {
+  const newAssignment = document.createElement('div');
+  newAssignment.classList.add('assignment');
+  newAssignment.innerHTML = `
+    <p><strong>Title:</strong> New Assignment</p>
+    <p><strong>Due Date:</strong> 2024-10-10</p>
+    <p><strong>Subject:</strong> New Subject</p>
+  `;
+  assignmentList.appendChild(newAssignment);
+});
+
+// Handle Chatbot Interaction
+const sendBtn = document.getElementById('send-btn');
+const chatLog = document.getElementById('chat-log');
+const userInput = document.getElementById('user-input');
+
+sendBtn.addEventListener('click', function () {
+  const userMessage = userInput.value;
+  if (userMessage) {
+    const userMessageElem = document.createElement('p');
+    userMessageElem.textContent = `User: ${userMessage}`;
+    chatLog.appendChild(userMessageElem);
+
+    const botResponseElem = document.createElement('p');
+    botResponseElem.textContent = 'Bot: How can I help you today?'; // Simple bot response for now
+    chatLog.appendChild(botResponseElem);
+
+    userInput.value = ''; // Clear input
+  }
+});
+
+// Add Bookmark
+const bookmarkForm = document.getElementById('bookmarkForm');
+const bookmarkList = document.getElementById('bookmarkList');
+
+bookmarkForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const resourceLink = document.getElementById('resource').value;
+
+  if (resourceLink) {
+    const bookmarkItem = document.createElement('div');
+    bookmarkItem.innerHTML = `<p><a href="${resourceLink}" target="_blank">${resourceLink}</a></p>`;
+    bookmarkList.appendChild(bookmarkItem);
+
+    bookmarkForm.reset(); // Clear form
+  }
+});
+
+// Set Learning Goals
+const goalForm = document.getElementById('goalForm');
+const goalsList = document.getElementById('goalsList');
+
+goalForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const goal = document.getElementById('goal').value;
+  const deadline = document.getElementById('deadline').value;
+
+  if (goal && deadline) {
+    const goalItem = document.createElement('div');
+    goalItem.innerHTML = `<p><strong>Goal:</strong> ${goal} <br> <strong>Deadline:</strong> ${deadline}</p>`;
+    goalsList.appendChild(goalItem);
+
+    goalForm.reset(); // Clear form
+  }
+});
+
+// Skill Exchange Program - Find a Partner
+const findPartnerBtn = document.getElementById('findPartner');
+const partnerResult = document.getElementById('partnerResult');
+
+const users = [
+  { name: 'Alice', skill: 'Design', needs: 'JavaScript' },
+  { name: 'Bob', skill: 'JavaScript', needs: 'Design' },
+  { name: 'Charlie', skill: 'Python', needs: 'HTML & CSS' }
+];
+
+findPartnerBtn.addEventListener('click', function () {
+  const randomIndex = Math.floor(Math.random() * users.length);
+  const partner = users[randomIndex];
+
+  partnerResult.innerHTML = `<p>Partner found: <strong>${partner.name}</strong><br>Skill: ${partner.skill} <br>Needs help with: ${partner.needs}</p>`;
+});
+
+// Skill Tournaments - Leaderboard
+const joinTournamentBtn = document.getElementById('joinTournament');
+const leaderboardList = document.getElementById('leaderboardList');
+
+const leaderboard = [
+  { name: 'John Doe', points: 150 },
+  { name: 'Jane Smith', points: 120 },
+  { name: 'Bob Johnson', points: 100 }
+];
+
+joinTournamentBtn.addEventListener('click', function () {
+  leaderboardList.innerHTML = ''; // Clear previous leaderboard
+  leaderboard.forEach(player => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${player.name} - ${player.points} points`;
+    leaderboardList.appendChild(listItem);
+  });
+});
+
+// Chart.js Example for Progress and Feedback
+const progressCtx = document.getElementById('progressChart').getContext('2d');
+const feedbackCtx = document.getElementById('feedbackChart').getContext('2d');
+
+// Progress Chart
+const progressChart = new Chart(progressCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Math', 'Science', 'English', 'History'],
+    datasets: [{
+      label: 'Progress (%)',
+      data: [85, 90, 75, 80],
+      backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(153, 102, 255, 0.6)', 'rgba(255, 159, 64, 0.6)', 'rgba(255, 99, 132, 0.6)'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+// Feedback Chart
+const feedbackChart = new Chart(feedbackCtx, {
+  type: 'pie',
+  data: {
+    labels: ['Positive', 'Neutral', 'Negative'],
+    datasets: [{
+      label: 'Feedback',
+      data: [75, 15, 10],
+      backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(255, 99, 132, 0.6)'],
+      borderWidth: 1
+    }]
+  }
+});
+</script>
